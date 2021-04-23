@@ -1,6 +1,6 @@
 %% Data loading for Deep Lerniang 
 % Data property is images file which saved as folder name
-folder = 'D:\Line-Center\DNN-Model-for-Fault-Diagnosis-of-Bearing\SiM\lub_axis_z'
+folder = 'D:\Line-Center\DNN-Model-for-Fault-Diagnosis-of-Bearing\SiM\cage_axis_z'
 ds=imageDatastore(folder,'InCludeSubfolders',true,'FileExtensions','.jpg','LabelSource','foldernames')
  % 하위 폴더안의 jpg 형식의 파일을 폴더를 기준으로 Label하여 데이터를 구성함
 numTrainingFiles=0.7; % Training 비율
@@ -36,7 +36,7 @@ disp('Layer composition is  completed')
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 %% set up training options
 % deep learning option 설정
-options = trainingOptions('sgdm', 'LearnRateSchedule', 'piecewise', 'InitialLearnRate', 1e-5, 'MaxEpochs', 30, 'Shuffle', 'every-epoch', 'ValidationData', imdsTest, 'ValidationFrequency', 30, 'Verbose', false, 'ExecutionEnvironment', 'gpu', 'MiniBatchSize', 128); 
+options = trainingOptions('sgdm', 'LearnRateSchedule', 'piecewise', 'InitialLearnRate', 1e-5, 'MaxEpochs', 30, 'Shuffle', 'every-epoch', 'ValidationData', imdsTest, 'ValidationFrequency', 30, 'Verbose', false, 'ExecutionEnvironment', 'gpu', 'Plots', 'training-progress', 'MiniBatchSize', 128); 
 %options = trainingOptions('sgdm', 'LearnRateSchedule', 'piecewise', 'InitialLearnRate', 1e-5, 'MaxEpochs', 30, 'Shuffle', 'every-epoch', 'ValidationData', imdsTest, 'ValidationFrequency', 30, 'Verbose', false, 'ExecutionEnvironment', 'gpu', 'Plots', 'training-progress', 'MiniBatchSize', 128); 
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 disp('training options is set')

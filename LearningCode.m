@@ -1,6 +1,6 @@
 %% Data loading for Deep Lerniang 
 % Data property is images file which saved as folder name
-folder = 'D:\Line Center\DNN-Model-for-Fault-Diagnosis-of-Bearing'
+folder = 'D:\Line-Center\DNN-Model-for-Fault-Diagnosis-of-Bearing\'
 ds=imageDatastore(folder,'InCludeSubfolders',true,'FileExtensions','.jpg','LabelSource','foldernames')
  % 하위 폴더안의 jpg 형식의 파일을 폴더를 기준으로 Label하여 데이터를 구성함
 numTrainingFiles=0.7; % Training 비율
@@ -28,7 +28,7 @@ layers = [
     %batchNormalizationLayer("Name","batchnorm_4")
     %reluLayer("Name","relu_4")
     fullyConnectedLayer(256,"Name","fc_1")
-    fullyConnectedLayer(5,"Name","fc_2")
+    fullyConnectedLayer(2,"Name","fc_2")
     softmaxLayer("Name","softmax")
     classificationLayer("Name","classoutput")];
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
